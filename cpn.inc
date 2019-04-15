@@ -17,38 +17,38 @@ hook OnGameModeInit()
     ShowNameTags(0);
     print("--- Custom nametags by zerruv loaded. Edited by Bork ---");
     // OnPlayerUpdate causes lag and OnPlayer(Take/Give)Damage doesn't work with it
-    SetTimer("UpdateNametag", 250, true); // So we're using a timer, change the interval to what you want
+    SetTimer("UpdateNametag", 1000, true); // So we're using a timer, change the interval to what you want
     return 1;
 }
 
 GetHealthDots(playerid)
 {
-    new dots[64];
-    new Float:HP;
+    new
+        dots[64], Float: HP;
  
     GetPlayerHealth(playerid, HP);
  
-    if(HP == 100)
+    if(HP >= 100)
         dots = "••••••••••";
-    else if(HP >= 90 && HP < 100)
+    else if(HP >= 90)
         dots = "•••••••••{660000}•";
-    else if(HP >= 80 && HP < 90)
+    else if(HP >= 80)
         dots = "••••••••{660000}••";
-    else if(HP >= 70 && HP < 80)
+    else if(HP >= 70)
         dots = "•••••••{660000}•••";
-    else if(HP >= 60 && HP < 70)
+    else if(HP >= 60)
         dots = "••••••{660000}••••";
-    else if(HP >= 50 && HP < 60)
+    else if(HP >= 50)
         dots = "•••••{660000}•••••";
-    else if(HP >= 40 && HP < 50)
+    else if(HP >= 40)
         dots = "••••{660000}••••••";
-    else if(HP >= 30 && HP < 40)
+    else if(HP >= 30)
         dots = "•••{660000}•••••••";
-    else if(HP >= 20 && HP < 30)
+    else if(HP >= 20)
         dots = "••{660000}••••••••";
-    else if(HP >= 10 && HP < 20)
+    else if(HP >= 10)
         dots = "••{660000}••••••••";
-    else if(HP >= 0 && HP < 10)
+    else if(HP >= 0)
         dots = "{660000}••••••••••";
  
     return dots;
@@ -56,32 +56,32 @@ GetHealthDots(playerid)
 
 GetArmorDots(playerid)
 {
-    new dots[64];
-    new Float:AR;
+    new
+        dots[64], Float: AR;
  
     GetPlayerArmour(playerid, AR);
  
-    if(AR == 100)
+    if(AR >= 100)
         dots = "••••••••••";
-    else if(AR >= 90 && AR < 100)
+    else if(AR >= 90)
         dots = "•••••••••{666666}•";
-    else if(AR >= 80 && AR < 90)
+    else if(AR >= 80)
         dots = "••••••••{666666}••";
-    else if(AR >= 70 && AR < 80)
+    else if(AR >= 70)
         dots = "•••••••{666666}•••";
-    else if(AR >= 60 && AR < 70)
+    else if(AR >= 60)
         dots = "••••••{666666}••••";
-    else if(AR >= 50 && AR < 60)
+    else if(AR >= 50)
         dots = "•••••{666666}•••••";
-    else if(AR >= 40 && AR < 50)
+    else if(AR >= 40)
         dots = "••••{666666}••••••";
-    else if(AR >= 30 && AR < 40)
+    else if(AR >= 30)
         dots = "•••{666666}•••••••";
-    else if(AR >= 20 && AR < 30)
+    else if(AR >= 20)
         dots = "••{666666}••••••••";
-    else if(AR >= 10 && AR < 20)
+    else if(AR >= 10)
         dots = "••{666666}••••••••";
-    else if(AR >= 0 && AR < 10)
+    else if(AR >= 0)
         dots = "{666666}••••••••••";
  
     return dots;
@@ -103,7 +103,7 @@ hook OnPlayerDisconnect(playerid, reason)
 forward UpdateNametag();
 public UpdateNametag()
 {
-    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
+    for(new i = GetPlayerPoolSize(); i != 0; i --)
     {
         if(IsPlayerConnected(i))
         {
