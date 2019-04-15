@@ -103,7 +103,7 @@ hook OnPlayerDisconnect(playerid, reason)
 forward UpdateNametag();
 public UpdateNametag()
 {
-    for(new i = GetPlayerPoolSize(); i != 0; i --)
+    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
     {
         if(IsPlayerConnected(i))
         {
