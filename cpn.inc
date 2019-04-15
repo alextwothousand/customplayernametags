@@ -15,13 +15,13 @@ new Text3D:cNametag[MAX_PLAYERS];
 hook OnGameModeInit()
 {
     ShowNameTags(0);
-    print("--- Custom nametags by zerruv loaded. Edited by Bork ---");
+    print("--- Custom nametags by Nyzenic loaded. Edited by Bork ---");
     // OnPlayerUpdate causes lag and OnPlayer(Take/Give)Damage doesn't work with it
     SetTimer("UpdateNametag", 1000, true); // So we're using a timer, change the interval to what you want
     return 1;
 }
 
-GetHealthDots(playerid)
+static GetHealthDots(playerid)
 {
     new
         dots[64], Float: HP;
@@ -47,14 +47,14 @@ GetHealthDots(playerid)
     else if(HP >= 20)
         dots = "••{660000}••••••••";
     else if(HP >= 10)
-        dots = "••{660000}••••••••";
+        dots = "•{660000}•••••••••";
     else if(HP >= 0)
         dots = "{660000}••••••••••";
  
     return dots;
 }
 
-GetArmorDots(playerid)
+static GetArmorDots(playerid)
 {
     new
         dots[64], Float: AR;
@@ -80,7 +80,7 @@ GetArmorDots(playerid)
     else if(AR >= 20)
         dots = "••{666666}••••••••";
     else if(AR >= 10)
-        dots = "••{666666}••••••••";
+        dots = "•{666666}•••••••••";
     else if(AR >= 0)
         dots = "{666666}••••••••••";
  
