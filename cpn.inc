@@ -6,7 +6,7 @@
 
 #include <a_samp>
 #include <streamer>
-#incluide <YSI\y_hooks>
+#include <YSI\y_hooks>
  
 #define NT_DISTANCE 25.0 // Nametag render distance
  
