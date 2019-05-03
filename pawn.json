@@ -1,0 +1,14 @@
+{
+	"user": "infin1tyy",
+	"repo": "customplayernametags",
+	"entry": "test.pwn",
+	"output": "test.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib",
+		"pawn-lang/YSI-Includes",
+		"samp-incognito/samp-streamer-plugin"
+	],
+	"runtime": {
+		"mode": "y_testing"
+	}
+}
